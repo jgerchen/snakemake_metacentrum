@@ -16,6 +16,11 @@ This snakemake profile can be used by adding
 ```--profile snakemake_metacentrum -j 50```
 to your Snakemake command, the -j option defines the maximum number of jobs simultaniously added to MetaCentrum. In addition you can set the following resources in the resources directives of your rules:
 mem_mb -> Memory in mb
+
 disk_mb -> local scratch space in mb
+
 runtime -> Walltime, format: HH:MM:SS
+
 In addition you can set the number of cores with the threads directive.
+
+Also you have to add the log directives, Metacentrum will create additional log files in the same folder with the ending .e and .o as well as .e.jobid and .o.jobid.
