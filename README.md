@@ -1,6 +1,6 @@
 # snakemake_metacentrum
 ## About
-This is a very basic cluster profile for running the [Snakemake workflow system](https://snakemake.readthedocs.io/en/stable/) on the [MetaCentrum distributed computing infrastructure](https://metavo.metacentrum.cz/en/index.html).
+This is a very basic cluster profile for running the [Snakemake workflow system](https://snakemake.readthedocs.io/en/stable/) on the [MetaCentrum distributed computing infrastructure](https://metavo.metacentrum.cz/en/index.html). It has very few options so far, but it automatically tracks jobs across queues if they get moved by MetaCentrum.
 
 ## Installation
 The standard directory for snakemake cluster profiles is located in `$HOME/.config/snakemake`. Create it if it doesn't exist and enter the directory using
