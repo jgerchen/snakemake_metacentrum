@@ -7,7 +7,7 @@ The standard directory for snakemake cluster profiles is located in `$HOME/.conf
 
 ```cd $HOME/.config/snakemake```
 
-The clone the git repository using
+Then clone the git repository using
 
 ```git clone https://github.com/jgerchen/snakemake_metacentrum/```
 
