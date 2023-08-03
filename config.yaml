@@ -12,4 +12,4 @@ cluster: "submit.py"
 # Cluster job status script
 cluster-status: "status.py"
 # Number of times Snakemake tries to restart a failed job
-restart-times: 1
+restart-times: 0
