@@ -8,7 +8,7 @@ jobid = sys.argv[1]
 job_status_cmd="qstat -xf %s" % jobid
 try:
 	job_status_reply=subprocess.run(job_status_cmd, check=True, shell=True, stdout=subprocess.PIPE).stdout.decode('utf-8')
-except:
+except:	
 	time.sleep(10)
 	job_status_reply=subprocess.run(job_status_cmd, check=True, shell=True, stdout=subprocess.PIPE).stdout.decode('utf-8')
 run_status=re.findall("job_state = (.)", job_status_reply)[0]
@@ -30,4 +30,4 @@ elif run_status=="F":
 	else:
 		print("failed")
 else:
-	print("Error: unable to get job status for job %s" % jobid)
+	print("Error: unable to get job status for job %s, inferred run status: %s, complete job status reply %s" % (jobid, run_status,job_status_reply))
