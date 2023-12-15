@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import sys
+import time
 import re
 import subprocess
 import math
@@ -28,7 +29,14 @@ def get_runtime(runtime_min):
 
 
 submit_command="qsub -V -l select=1:ncpus=%s:mem=%smb:scratch_local=%smb -l walltime=%s -m n -o %s.cluster.o -e %s.cluster.e %s" % (job_probs["threads"], job_probs["resources"]["mem_mb"], job_probs["resources"]["disk_mb"], get_runtime(job_probs["resources"]["runtime"]), job_probs["log"][0], job_probs["log"][0], jobscript)
-submit_response=subprocess.run(submit_command, check=True, shell=True, stdout=subprocess.PIPE).stdout.decode('utf-8')
+while True:
+	try:
+		submit_response=subprocess.run(submit_command, check=True, shell=True, stdout=subprocess.PIPE).stdout.decode('utf-8')
+		break
+	except:
+		time.sleep(60)	
+		pass
+
 #get job id from output using RE
 job_id=re.findall("^[0-9]+", submit_response)[0]
 #change the name of error and output files job was submitted and we have a jobid

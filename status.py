@@ -6,20 +6,24 @@ import re
 jobid = sys.argv[1]
 
 job_status_cmd="qstat -xf %s" % jobid
-try:
-	job_status_reply=subprocess.run(job_status_cmd, check=True, shell=True, stdout=subprocess.PIPE).stdout.decode('utf-8')
-except:	
-	time.sleep(10)
-	job_status_reply=subprocess.run(job_status_cmd, check=True, shell=True, stdout=subprocess.PIPE).stdout.decode('utf-8')
+while True:
+	try:
+		job_status_reply=subprocess.run(job_status_cmd, check=True, shell=True, stdout=subprocess.PIPE).stdout.decode('utf-8')
+		break
+	except:	
+		time.sleep(60)
+		pass
 run_status=re.findall("job_state = (.)", job_status_reply)[0]
 if run_status=="M":
 	moved_queue=re.findall("queue = .+@(.+)", job_status_reply)[0]
 	job_status_cmd_mvd="qstat -xf %s@%s" % (jobid, moved_queue)
-	try:
-		job_status_reply=subprocess.run(job_status_cmd_mvd, check=True, shell=True, stdout=subprocess.PIPE).stdout.decode('utf-8')
-	except:
-		time.sleep(10)
-		job_status_reply=subprocess.run(job_status_cmd_mvd, check=True, shell=True, stdout=subprocess.PIPE).stdout.decode('utf-8')
+	while True:
+		try:
+			job_status_reply=subprocess.run(job_status_cmd_mvd, check=True, shell=True, stdout=subprocess.PIPE).stdout.decode('utf-8')
+			break
+		except:
+			time.sleep(60)
+			pass
 	run_status=re.findall("job_state = (.)", job_status_reply)[0]
 if run_status=="R" or run_status=="Q" or run_status=="E":
 	print("running")
