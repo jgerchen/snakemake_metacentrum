@@ -4,7 +4,7 @@ This is a cluster profile for running Snakemake on the MetaCentrum computing env
 
 ## Installation
 
-The standard directory for cluster profiles is $HOME/.config/snakemake. If it doesn't exist create it, change your directory there and clone the cluster profile using 
+The standard directory for cluster profiles is $HOME/.config/snakemake. If it doesn't exist create it, change your directory there (cd $HOME/.config/snakemake) and clone the cluster profile using 
 ```
 git clone https://github.com/jgerchen/snakemake_metacentrum
 ```
