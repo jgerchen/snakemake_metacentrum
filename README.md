@@ -1,6 +1,6 @@
 # snakemake_metacentrum
 
-This is the updated cluster module for running Snakemake on the MetaCentrum computing environment for Snakemake versions 8 and greater, which does not use the cluster command anymore, but cluster executer plugins. For older Snakemake versions, please go back to commit 437b8d9. 
+This is the updated cluster module for running Snakemake on the MetaCentrum computing environment for Snakemake versions 8 and greater, which does not use the cluster command anymore, but cluster executer plugins. For older Snakemake versions, please go back to commit 437b8d9c39dba6208b131d08449c2a8042590aca. 
 This script is relatively simple, but it allows tracking jobs, which have been moved between across queues, which MetaCentrum does all the time.
 
 ## Installation
