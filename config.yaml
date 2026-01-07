@@ -8,8 +8,17 @@ max-jobs-per-second: 5
 # Maximum number of job status checks per second
 max-status-checks-per-second: 10
 # Cluster submission script
-cluster: "submit.py"
+
+
+executor: cluster-generic
+#default_resources: []
+cluster-generic-submit-cmd: "submit.py"
+cluster-generic-status-cmd: "status.py"
+
+
+
+#cluster: "submit.py"
 # Cluster job status script
-cluster-status: "status.py"
+#cluster-status: "status.py"
 # Number of times Snakemake tries to restart a failed job
 restart-times: 0

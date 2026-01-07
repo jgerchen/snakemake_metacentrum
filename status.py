@@ -25,7 +25,7 @@ if run_status=="M":
 			time.sleep(60)
 			pass
 	run_status=re.findall("job_state = (.)", job_status_reply)[0]
-if run_status=="R" or run_status=="Q" or run_status=="E":
+if run_status=="R" or run_status=="Q" or run_status=="E" or run_status=="T":
 	print("running")
 elif run_status=="F":
 	exit_status=re.findall("Exit_status = (.+)", job_status_reply)[0]

@@ -2,14 +2,34 @@
 import sys
 import time
 import re
+import shutil
 import subprocess
 import math
+import shutil
 from snakemake.utils import read_job_properties
 
 jobscript=sys.argv[1]
 
+#shutil.copy2(jobscript, "/storage/brno12-cerit/home/gerchenj/toy_snake")
+
 job_probs=read_job_properties(jobscript)
-#add_conda=subprocess.run("sed -i '1s/^/\/storage\/brno2\/home\/gerchenj\/mambaforge-pypy3\/bin\/activate\n/' "+jobscript, check=True, shell=True)
+#
+#conda_path="/storage/brno12-cerit/home/gerchenj/miniforge-pypy3/bin/activate"
+#conda_env="Snakemake9"
+#
+#with open(jobscript) as jobscript_mod:
+#	js_lines=[j for j in jobscript_mod]
+##overwrite jobscript	
+#
+#with open(jobscript, "w") as jobscript_out:
+#	jobscript_out.write(js_lines[0])
+#	jobscript_out.write(js_lines[1])
+#	#jobscript_out.write("source  %s %s\n" % (conda_path,conda_env))
+#	jobscript_out.write(js_lines[2])
+#shutil.copy2(jobscript, "/storage/brno12-cerit/home/gerchenj/toy_snake")
+#add_conda=subprocess.run("sed -i '3s/^/\/storage\/brno12-cerit\/home\/gerchenj\/miniforge-pypy3\/bin\/activate Snakemake9\n/' "+jobscript, check=True, shell=True)
+
+#add_conda=subprocess.run("sed -i '3s/^/\/storage\/brno12-cerit\/home\/gerchenj\/miniforge-pypy3\/bin\/activate Snakemake9\n/' "+jobscript, check=True, shell=True)
 
 #def line_prepender(filename, line):
 #	with open(filename, 'r+') as f:
